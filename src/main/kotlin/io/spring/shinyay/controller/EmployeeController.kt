@@ -24,7 +24,7 @@ class EmployeeController(val repository: EmployeeRepository) {
 
     @Bean
     fun routeHelloFlux(): RouterFunction<ServerResponse?>? {
-        return route(GET("/hello-flux")) { this.helloFlux() }
+        return route(GET("/api/v1/hello-flux")) { this.helloFlux() }
     }
 
     fun helloFlux(): Mono<ServerResponse?> {
