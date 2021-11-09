@@ -19,9 +19,11 @@ import java.time.format.DateTimeFormatter
 @RequestMapping("/api/v1")
 class EmployeeController(val repository: EmployeeRepository) {
 
+    // Annotation Controller Model
     @GetMapping("/hello-mono")
     fun helloMono() = Mono.just("Hello Mono")
 
+    // Router Function Model
     @Bean
     fun routeHelloFlux(): RouterFunction<ServerResponse?>? {
         return route(GET("/api/v1/hello-flux")) { this.helloFlux() }
