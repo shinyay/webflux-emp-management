@@ -13,7 +13,5 @@ class EmployeeWebClient {
             .retrieve()
             .bodyToFlux(Employee::class.java)
         employeeFlux.subscribe { employee -> println(employee) }
-        }
     }
-
 }
