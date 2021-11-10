@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS employee;
 CREATE TABLE employee (
                           employee_id decimal(4,0) NOT NULL AUTO_INCREMENT,
                           department_id decimal(4,0),
-                          employee_name varchar(64) NOT NULL,
+                          name varchar(64) NOT NULL,
                           role varchar(32) DEFAULT NULL,
                           PRIMARY KEY (employee_id)
 );
