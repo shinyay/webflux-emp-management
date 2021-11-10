@@ -1,3 +1,9 @@
 package io.spring.shinyay.entity
 
-data class Employee(val id: Long, val name: String)
+import org.springframework.data.annotation.Id
+
+data class Employee(
+    @Id
+    var id: Long,
+    var name: String
+)
