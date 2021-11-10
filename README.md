@@ -20,6 +20,11 @@ $ curl -X POST localhost:8080/api/v1/employees -H 'Content-type:application/json
 $ curl -X PUT localhost:8080/api/v1/employees/1 -H 'Content-type:application/json' -d '{"employee_id":1,"department_id": 10, "name": "Alice", "role": "Dev"}'
 ```
 
+### Delete an employee
+```shell
+$ curl -X DELETE localhost:8080/api/v1/employees/1
+```
+
 ## Features
 
 - feature:1
