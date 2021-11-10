@@ -12,7 +12,7 @@ $ curl -X GET http://localhost:8080/api/v1/employees
 
 ### Create an employee
 ```shell
-$ curl -X POST localhost:8080/api/v1/employees -H 'Content-type:application/json' -d '{"deparment_id": 10, "name": "Alice", "role": "Dev"}'
+$ curl -X POST localhost:8080/api/v1/employees -H 'Content-type:application/json' -d '{"employee_id":0,"department_id": 10, "name": "Alice", "role": "Dev"}'
 ```
 
 ## Features
