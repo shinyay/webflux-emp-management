@@ -60,4 +60,9 @@ class EmployeeController(val repository: EmployeeRepository) {
             repository.save(employee)
         }
     }
+
+    @DeleteMapping("/employees/{id}")
+    fun deleteEmployee(@PathVariable id: Long): Mono<Void> {
+        return repository.deleteById(id)
+    }
 }
