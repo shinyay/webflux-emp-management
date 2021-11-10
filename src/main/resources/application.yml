@@ -3,10 +3,10 @@ spring:
     url: r2dbc:h2:mem:///test?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;DATABASE_TO_UPPER=FALSE
     name: sa
     password:
-#  sql:
-#    init:
-#      mode: embedded
-#      platform: h2
-#      encoding: UTF-8
-#      schema-locations: classpath:db/schema-h2.sql
-#      data-locations: classpath:db/data-h2.sql
+  sql:
+    init:
+      mode: embedded
+      platform: h2
+      encoding: UTF-8
+      schema-locations: classpath:db/schema-h2.sql
+      data-locations: classpath:db/data-h2.sql
