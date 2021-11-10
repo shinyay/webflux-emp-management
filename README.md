@@ -5,7 +5,10 @@ This application is a simple example of a Spring Boot application using WebFlux.
 ## Description
 
 ## Demo
-
+### Retrive all employees
+```shell
+$ curl -X GET http://localhost:8080/api/v1/employees
+```
 ## Features
 
 - feature:1
