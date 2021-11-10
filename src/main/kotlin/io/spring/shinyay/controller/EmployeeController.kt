@@ -53,5 +53,11 @@ class EmployeeController(val repository: EmployeeRepository) {
         return repository.save(employee)
     }
 
-    
+    @PutMapping("/employees/{id}")
+    fun updateEmployee(@PathVariable id: Long, @RequestBody employee: Employee): Mono<Employee> {
+        return repository.findById(id).flatMap {
+            employee.employee_id = id
+            repository.save(employee)
+        }
+    }
 }
