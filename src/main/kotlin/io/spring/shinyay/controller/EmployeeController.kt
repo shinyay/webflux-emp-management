@@ -47,6 +47,6 @@ class EmployeeController(val repository: EmployeeRepository) {
 
     @GetMapping("/employees")
     fun getAllEmployees(): Flux<Employee> {
-        return repository.findAllEmployees()
+        return repository.findAll()
     }
 }
