@@ -3,9 +3,7 @@ package io.spring.shinyay.controller
 import io.spring.shinyay.entity.Employee
 import io.spring.shinyay.repository.EmployeeRepository
 import org.springframework.context.annotation.Bean
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import org.springframework.web.reactive.function.server.*
 import org.springframework.web.reactive.function.server.RequestPredicates.GET
 import org.springframework.web.reactive.function.server.RouterFunctions.route
@@ -49,4 +47,11 @@ class EmployeeController(val repository: EmployeeRepository) {
     fun getAllEmployees(): Flux<Employee> {
         return repository.findAll()
     }
+
+    @PostMapping("/employees")
+    fun createEmployee(@RequestBody employee: Employee): Mono<Employee> {
+        return repository.save(employee)
+    }
+
+    
 }
