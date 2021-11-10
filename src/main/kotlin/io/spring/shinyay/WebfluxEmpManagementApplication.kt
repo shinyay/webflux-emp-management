@@ -16,8 +16,7 @@ import java.util.stream.Stream
 class WebfluxEmpManagementApplication {
 
     val ddl = """
-		DROP TABLE IF EXISTS employee;
-		CREATE TABLE employee (
+		CREATE TABLE IF NOT EXISTS employee (
 		                          employee_id decimal(4,0) NOT NULL AUTO_INCREMENT,
 		                          department_id decimal(4,0),
 		                          name varchar(64) NOT NULL,
@@ -32,10 +31,10 @@ class WebfluxEmpManagementApplication {
             client.sql(ddl).fetch().first().subscribe()
 
             val stream = Stream.of(
-                Employee(100, "John", "Dev"),
-                Employee(200, "Mary", "QA"),
-                Employee(300, "Peter", "Tester"),
-                Employee(400, "Mike", "Designer")
+                Employee(10, "John", "Dev"),
+                Employee(20, "Mary", "QA"),
+                Employee(30, "Peter", "Tester"),
+                Employee(40, "Mike", "Designer")
             )
 
             repository.saveAll(Flux.fromStream(stream))
