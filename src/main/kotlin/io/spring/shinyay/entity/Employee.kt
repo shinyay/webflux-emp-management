@@ -10,4 +10,6 @@ data class Employee(
     val department_id: Long,
     val name: String,
     val role: String
-)
+) {
+    constructor(department_id: Long, name: String, role: String) : this(0, department_id, name, role)
+}
