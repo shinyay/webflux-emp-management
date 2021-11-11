@@ -27,7 +27,7 @@ class WebfluxEmpManagementApplication {
 
     @Bean
     fun init(repository: EmployeeRepository, client: DatabaseClient): ApplicationRunner? {
-        return ApplicationRunner { args: ApplicationArguments? ->
+        return ApplicationRunner {
             client.sql(ddl).fetch().first().subscribe()
 
             val stream = Stream.of(
