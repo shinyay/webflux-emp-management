@@ -22,6 +22,19 @@ CREATE TABLE department (
 );
 ```
 
+Employee Table
+```sql
+DROP TABLE IF EXISTS employee;
+CREATE TABLE employee (
+                          employee_id decimal(4,0) NOT NULL AUTO_INCREMENT,
+                          department_id decimal(4,0),
+                          name varchar(64) NOT NULL,
+                          role varchar(32) DEFAULT NULL,
+                          PRIMARY KEY (employee_id)
+);
+
+ALTER TABLE employee ADD FOREIGN KEY (department_id) REFERENCES department (department_id);
+```
 
 ## Demo
 ### Retrieve all employees
