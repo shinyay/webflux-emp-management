@@ -61,4 +61,16 @@ class WebfluxEmpManagementApplicationTests(@LocalServerPort val port: Int) {
 			.isEqualTo("John")
 	}
 
+	@Test
+	fun Given_LocalH2_When_FindById_Then_Return_DetailedElement_With_Null() {
+        val employee = client.get().uri("/api/v1/employees/10")
+            .accept(MediaType.APPLICATION_JSON)
+            .exchange()
+            .expectStatus()
+            .isOk
+            .expectBody()
+            .jsonPath("$.name")
+            .isEqualTo("")
+    }
+
 }
