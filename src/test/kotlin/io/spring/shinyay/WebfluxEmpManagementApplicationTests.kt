@@ -1,8 +1,6 @@
 package io.spring.shinyay
 
 import io.spring.shinyay.entity.Employee
-import org.junit.jupiter.api.BeforeAll
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.web.server.LocalServerPort
