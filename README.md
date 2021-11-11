@@ -56,6 +56,8 @@ The repository interface extends ReactiveCrudRepository.
 interface EmployeeRepository : ReactiveCrudRepository<Employee, Long>
 ```
 
+You can add a custom method to the repository interface with `@Query` annotation.
+
 ### Controller
 
 ## Demo
