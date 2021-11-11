@@ -48,6 +48,11 @@ class EmployeeController(val repository: EmployeeRepository) {
         return repository.findAll()
     }
 
+    @GetMapping("/employees/{id}")
+    fun getEmployeeById(@PathVariable id: Long): Mono<Employee> {
+        return repository.findById(id)
+    }
+
     @PostMapping("/employees")
     fun createEmployee(@RequestBody employee: Employee): Mono<Employee> {
         return repository.save(employee)
