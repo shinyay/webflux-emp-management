@@ -3,6 +3,7 @@ package io.spring.shinyay.controller
 import io.spring.shinyay.entity.Employee
 import io.spring.shinyay.repository.EmployeeRepository
 import org.springframework.context.annotation.Bean
+import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.reactive.function.server.*
 import org.springframework.web.reactive.function.server.RequestPredicates.GET
@@ -54,6 +55,7 @@ class EmployeeController(val repository: EmployeeRepository) {
     }
 
     @PostMapping("/employees")
+    @ResponseStatus(HttpStatus.CREATED)
     fun createEmployee(@RequestBody employee: Employee): Mono<Employee> {
         return repository.save(employee)
     }
