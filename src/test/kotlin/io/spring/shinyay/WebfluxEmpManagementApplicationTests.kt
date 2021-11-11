@@ -76,5 +76,18 @@ class WebfluxEmpManagementApplicationTests(@LocalServerPort val port: Int) {
             .isEqualTo("Shinya")
     }
 
-
+	@Test
+	fun Given_LocalH2_When_UpdateElement_Then_Return_Element() {
+        val employee = Employee(employee_id = 1, department_id = 100, name = "Shinya", role = "Advocate")
+        val result = client.put().uri("/api/v1/employees/1")
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(employee)
+            .exchange()
+            .expectStatus()
+            .isOk
+            .expectBody()
+            .jsonPath("$.role")
+            .isEqualTo("Advocate")
+    }
 }
