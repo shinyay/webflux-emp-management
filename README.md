@@ -48,7 +48,14 @@ data class Employee(
     constructor(department_id: Long, name: String, role: String) : this(0, department_id, name, role)
 }
 ```
+
 ### Repository
+The repository interface extends ReactiveCrudRepository.
+
+```kotlin
+interface EmployeeRepository : ReactiveCrudRepository<Employee, Long>
+```
+
 ### Controller
 
 ## Demo
