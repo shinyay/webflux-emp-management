@@ -6,6 +6,7 @@ This application is a simple example of a Spring Boot application using WebFlux.
 ### Dependencies
 - org.springframework.boot
   - `spring-boot-starter-data-r2dbc`
+  - `spring-boot-starter-webflux`
 
 ## Demo
 ### Retrieve all employees
