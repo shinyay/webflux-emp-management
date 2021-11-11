@@ -11,6 +11,18 @@ This application is a simple example of a Spring Boot application using WebFlux.
   - `com.h2database:h2`
   - `io.r2dbc:r2dbc-h2`
 
+### Databasd Schema
+Department Table
+```sql
+DROP TABLE IF EXISTS department;
+CREATE TABLE department (
+                            department_id decimal(4,0) NOT NULL AUTO_INCREMENT,
+                            department_name varchar(14) DEFAULT NULL,
+                            PRIMARY KEY (department_id)
+);
+```
+
+
 ## Demo
 ### Retrieve all employees
 ```shell
