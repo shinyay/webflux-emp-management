@@ -95,5 +95,4 @@ class WebfluxEmpManagementApplicationTests(@LocalServerPort val port: Int) {
             .jsonPath("$.role")
             .isEqualTo("Advocate")
     }
-
 }
