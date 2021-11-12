@@ -59,6 +59,13 @@ interface EmployeeRepository : ReactiveCrudRepository<Employee, Long>
 You can add a custom method to the repository interface with `@Query` annotation.
 
 ### Controller
+#### Annotated Controller
+```kotlin
+@GetMapping("/employees")
+fun getAllEmployees(): Flux<Employee> {
+    return repository.findAll()
+}
+```
 
 ## Demo
 ### Retrieve all employees
