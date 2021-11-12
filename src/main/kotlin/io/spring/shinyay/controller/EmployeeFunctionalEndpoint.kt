@@ -1,4 +1,4 @@
 package io.spring.shinyay.controller
 
-class EmployeeRouterFunction {
+class EmployeeFunctionalEndpoint {
 }
