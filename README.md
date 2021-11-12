@@ -67,6 +67,11 @@ fun getAllEmployees(): Flux<Employee> {
 }
 ```
 
+#### Functional Endpoint
+```kotlin
+
+```
+
 ## Demo
 ### Retrieve all employees
 ```shell
