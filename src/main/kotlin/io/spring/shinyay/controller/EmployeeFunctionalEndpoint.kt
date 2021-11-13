@@ -12,9 +12,14 @@ import reactor.core.publisher.Mono
 
 class EmployeeFunctionalEndpoint(val repository: EmployeeRepository) {
 
+    @Bean
+    fun router(): RouterFunction<ServerResponse> {
+        return route()
+                .GET("/functional/employees", this::findAllHandler)
+                .build()
+    }
 
-
-    fun findAllEmployees(request: ServerRequest): Mono<ServerResponse> {
+    fun findAllHandler(request: ServerRequest): Mono<ServerResponse> {
         val result: Flux<Employee> = repository.findAll()
         return ServerResponse.ok().body(result, Employee::class.java)
     }
