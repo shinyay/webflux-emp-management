@@ -17,7 +17,7 @@ class EmployeeFunctionalEndpoint(val repository: EmployeeRepository) {
     @Bean
     fun router(): RouterFunction<ServerResponse> {
         return route()
-                .GET("/functional/employees", this::findAllHandler)
+                .GET("/router/employees", this::findAllHandler)
                 .build()
     }
 
