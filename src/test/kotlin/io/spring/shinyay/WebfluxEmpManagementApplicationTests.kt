@@ -26,14 +26,24 @@ class WebfluxEmpManagementApplicationTests(@LocalServerPort val port: Int) {
 	@Test
     @Order(2)
 	fun Given_LocalH2_When_FindAll_Then_Return_Element() {
-		val employee = client.get().uri("/api/v1/employees")
+		val employeeForAnnotatedController = client.get().uri("/api/v1/employees")
 			.exchange()
 			.expectStatus()
 			.isOk
 			.returnResult(Employee::class.java)
 			.responseBody
-		StepVerifier.create(employee)
+		StepVerifier.create(employeeForAnnotatedController)
             .expectNextCount(8)
+            .verifyComplete()
+
+        val employeeForFunctionalController = client.get().uri("/router/employees")
+            .exchange()
+            .expectStatus()
+            .isOk
+            .returnResult(Employee::class.java)
+            .responseBody
+        StepVerifier.create(employeeForFunctionalController)
+            .expectNextCount(7)
             .verifyComplete()
 	}
 
@@ -54,7 +64,7 @@ class WebfluxEmpManagementApplicationTests(@LocalServerPort val port: Int) {
 	@Test
     @Order(4)
 	fun Given_LocalH2_When_FindById_Then_Return_DetailedElement() {
-		val employee = client.get().uri("/api/v1/employees/1")
+		client.get().uri("/api/v1/employees/1")
 			.accept(MediaType.APPLICATION_JSON)
 			.exchange()
 			.expectStatus()
@@ -68,7 +78,7 @@ class WebfluxEmpManagementApplicationTests(@LocalServerPort val port: Int) {
     @Order(5)
 	fun Given_LocalH2_When_AddElement_Then_Return_Element() {
         val employee = Employee(department_id = 100, name = "Shinya", role = "Developer")
-        val result = client.post().uri("/api/v1/employees")
+        client.post().uri("/api/v1/employees")
             .accept(MediaType.APPLICATION_JSON)
             .contentType(MediaType.APPLICATION_JSON)
             .bodyValue(employee)
@@ -84,7 +94,7 @@ class WebfluxEmpManagementApplicationTests(@LocalServerPort val port: Int) {
     @Order(6)
 	fun Given_LocalH2_When_UpdateElement_Then_Return_Element() {
         val employee = Employee(employee_id = 1, department_id = 100, name = "Shinya", role = "Advocate")
-        val result = client.put().uri("/api/v1/employees/1")
+        client.put().uri("/api/v1/employees/1")
             .accept(MediaType.APPLICATION_JSON)
             .contentType(MediaType.APPLICATION_JSON)
             .bodyValue(employee)
