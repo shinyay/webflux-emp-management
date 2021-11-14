@@ -68,8 +68,13 @@ fun getAllEmployees(): Flux<Employee> {
 ```
 
 #### Functional Endpoint
-```kotlin
+`Handler function` is a function that returns a Mono.
 
+```kotlin
+  fun findAllHandler(request: ServerRequest): Mono<ServerResponse> {
+      val result: Flux<Employee> = repository.findAll()
+      return ServerResponse.ok().body(result, Employee::class.java)
+  }
 ```
 
 ## Demo
