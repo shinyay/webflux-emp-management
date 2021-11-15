@@ -87,6 +87,14 @@ fun router(): RouterFunction<ServerResponse> {
     }
 ```
 
+### Mono and Flux
+- `Mono` is a reactive type that represents a single value.
+  - `Mono.just(value)`
+  - `Mono.flatMap(function)`
+  - `Mono.flatMapMany(function)`
+  - `Mono.retry()`
+
+
 ## Demo
 ### Retrieve all employees
 ```shell
