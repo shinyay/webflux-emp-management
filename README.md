@@ -77,6 +77,16 @@ fun getAllEmployees(): Flux<Employee> {
   }
 ```
 
+Router function is a function that returns a RouterFunction.
+```kotlin
+@Bean
+fun router(): RouterFunction<ServerResponse> {
+    return route()
+            .GET("/api/endpoint", this::handlerFuntion)
+            .build()
+    }
+```
+
 ## Demo
 ### Retrieve all employees
 ```shell
