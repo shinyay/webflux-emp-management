@@ -13,7 +13,7 @@ class HelloHandler {
 
     fun helloMono(request: ServerRequest): Mono<ServerResponse> {
         return ServerResponse.ok()
-            .contentType(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.TEXT_PLAIN)
             .body(
                 Mono.just("Hello Spring Boot!"),String::class.java
             )
@@ -21,12 +21,20 @@ class HelloHandler {
 
     fun helloFlux(request: ServerRequest): Mono<ServerResponse> {
         return ServerResponse.ok()
-            .contentType(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.TEXT_PLAIN)
             .body(
                 Flux
                     .just("Hello", "Spring", "Boot!")
                     .delayElements(Duration.ofSeconds(1))
                     .log(),String::class.java
+            )
+    }
+
+    fun helloName(request: ServerRequest): Mono<ServerResponse> {
+        return ServerResponse.ok()
+            .contentType(MediaType.TEXT_PLAIN)
+            .body(
+                Flux.just("Hello Spring ", request.pathVariable("name")).log(),String::class.java
             )
     }
 }
