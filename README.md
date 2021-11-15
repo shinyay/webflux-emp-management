@@ -93,7 +93,11 @@ fun router(): RouterFunction<ServerResponse> {
   - `Mono.flatMap(function)`
   - `Mono.flatMapMany(function)`
   - `Mono.retry()`
-
+- `Flux` is a reactive type that represents a stream of values.
+  - `Flux.just(value)`
+  - `Flux.fromIterable(list)`
+  - `Flux.fromArray(array)`
+  - `Flux.fromStream(stream)`
 
 ## Demo
 ### Retrieve all employees
